@@ -1,0 +1,51 @@
+<%@page import="org.json.simple.JSONArray"%>
+<%@page import="org.json.simple.JSONObject"%>
+
+<%@page import="java.util.List"%>
+<%@page import="vo.FavoriteVO"%>
+<%@page import="dao.FavoriteDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%
+
+	request.setCharacterEncoding("UTF-8");
+	//즐겨찾기
+	
+	String id = request.getParameter("id");
+	
+	List<FavoriteVO> list = FavoriteDAO.getInstance().selectList();
+	
+	
+	
+	JSONObject obj = new JSONObject();
+	try {
+	JSONArray jArray = new JSONArray();//배열이 필요할때
+	for (int i = 0; i < list.size(); i++)//배열
+	{
+	JSONObject sObject = new JSONObject();//배열 내에 들어갈 json
+	sObject.put("id", list.get(i).getId());
+	sObject.put("restaurant_name", list.get(i).getRestaurant_name());
+	sObject.put("restaurant_number", list.get(i).getRestaurant_number());
+	jArray.put(sObject);
+	}
+	obj.put("item", jArray);//배열을 넣음
+
+	System.out.println(obj.toString());
+
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
+
+	
+%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
