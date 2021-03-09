@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>이미지 슬라이드</title>
+		
+		<script type="text/javascript">
+			
+			var num = 1;
+			var path = "image/img";
+			
+			function prev() {
+				num--;
+				if( num == 0 ){
+					num = 7;
+				}
+				
+				document.getElementById("gallery").src = path + num + ".jpg";
+				
+			}//prev()
+			
+			function next(){
+				num++;
+				if( num == 8 ){
+					num = 1;
+				}
+				document.getElementById("gallery").src = path + num + ".jpg";
+			}
+			
+			setInterval( "next()", 1000 );
+			
+		</script>
+		
+	</head>
+	
+	<body>
+		<div id="galleryWrap">
+			<p>
+				<a href="#" onClick="prev();">
+					<img src="image/left_btn.png" alt="이전">
+				</a>
+			
+				<img alt="갤러리" 
+				     src="image/img1.jpg"
+				     width="300" height="200"
+				     id="gallery">
+			
+				<a href="#" onClick="next();">
+					<img src="image/right_btn.png" alt="이전">
+				</a>
+			</p>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

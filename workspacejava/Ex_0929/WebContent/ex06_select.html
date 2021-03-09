@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>select태그의 동적처리</title>
+		
+		<script type="text/javascript">
+		
+			var sido_arr = ["서울", "대전", "대구", "부산"];	
+		
+			window.onload = function(){
+				//이름이 없는 익명메서드
+				//현재 html페이지가 완전히 로드되면 자동으로 호출되는 메서드 영역
+				var sido = document.getElementById("sido");
+				
+				for( var i = 0; i < sido_arr.length; i++ ){
+					
+					//option태그를 코드로 생성한다
+					var my_option = document.createElement("option");
+					
+					my_option.innerHTML = sido_arr[i];
+					//my_option.value = i;
+					
+					sido.appendChild(my_option);
+					
+				}//for
+			}
+			
+		</script>
+		
+	</head>
+	
+	<body>
+		지역 : <select id="sido">
+				<option>::지역선택::</option>
+			  </select>
+	</body>
+</html>
+
+
+
+
+
+

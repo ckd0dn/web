@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form태그를 사용하여 서버에 값 전달하기 - 1</title>
+		
+		<script type="text/javascript">
+		
+		function check1() {
+			
+			//form태그 검색!!
+			var f = document.ff;//ff라는 name을 가진 form태그
+			
+			var id = f.id.value;
+			var pwd = f.pwd.value.trim();
+			var blood_type = f.blood.value;
+			
+			//유효성 체크
+			if( id.trim() == '' ){
+				alert("아이디를 입력하세요");
+				f.id.focus();//id입력상자로 포커스 전환!
+				return;
+			}
+			
+			if( blood_type == "혈액형을 선택하세요" ){
+				alert("한가지는 선택하세요");
+				return;
+			}
+			
+			f.submit();
+			
+		}//check1()
+		
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<!-- form태그 안에 존재하는 name속성이 파라미터를 통해 서버측으로 전달 -->
+		<form method="get"
+		      action="login.jsp"
+		      name="ff">
+		      
+			<table border="1">
+				
+				<tr>
+					<th>아이디</th>
+					<td><input name="id"></td>
+				</tr>
+				
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="pwd"></td>
+				</tr>
+					
+				<tr>
+					<th>혈액형</th>
+					<td>
+						<select name="blood">
+							<option>혈액형을 선택하세요</option>
+							<option>A</option>
+							<option>B</option>
+							<option>O</option>
+							<option>AB</option>	
+						</select>
+					</td>
+				</tr>	
+								
+			</table>
+		
+			<input type="checkbox" value="n" name="check">낚시
+			<input type="checkbox" value="d" name="check">독서
+		
+			<input type="button" value="폼 버튼" onclick="check1();">
+				
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

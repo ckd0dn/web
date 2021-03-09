@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form태그를 사용하여 서버에 값 전달하기 - 1</title>
+		
+		<script type="text/javascript">
+		
+		function check1() {
+			
+			//body안에 존재하는 form태그를 배열형식으로 저장해두고
+			//원하는 form태그를 찾아내는 구조
+			var f = document.forms[0];
+			
+			var id = f.id.value;//id라는 name을 가진 input의 값
+			var pwd = f.pwd.value;
+			
+			//유효성 체크
+			if(id == ''){
+				alert("아이디를 입력해야 합니다");
+				return;
+			}
+			
+			if( pwd == '' ){
+				alert("비밀번호를 입력하세요");
+				return;
+			}
+			
+			//전송방식
+			//GET : 파라미터를 url로 노출. 속도가 빠른편. 보안성이 떨어짐.
+			//POST : 파라미터를 url로 노출하지 X, 속도는 get보다 느린편. 보안성이 높다
+			f.method = "get";
+			
+			//파라미터를 전달할 페이지
+			f.action = "login.jsp";
+			
+			//서버로 파라미터를 전송
+			f.submit();
+		}
+		
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<!-- form태그 안에 존재하는 name속성이 파라미터를 통해 서버측으로 전달 -->
+		<form>
+			<table border="1">
+				
+				<tr>
+					<th>아이디</th>
+					<td><input name="id"></td>
+				</tr>
+				
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="pwd"></td>
+				</tr>
+					
+				<tr>
+					<th>혈액형</th>
+					<td>
+						<select name="blood">
+							<option>혈액형을 선택하세요</option>
+							<option>A</option>
+							<option>B</option>
+							<option>O</option>
+							<option>AB</option>	
+						</select>
+					</td>
+				</tr>	
+								
+			</table>
+			
+			<input type="submit" value="폼 예제1">
+			<input type="button" value="폼 버튼" onclick="check1();">
+				
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
